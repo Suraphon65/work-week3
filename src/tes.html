@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ตรวจสอบเลขจำนวนเฉพาะ</title>
+  <script>
+    function isPrimeNumber(number) {
+      if (number <= 1) {
+        return false;
+      }
+
+      for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function checkNumber() {
+      const input = document.getElementById('numberInput').value;
+      const result = isPrimeNumber(input);
+
+      if (result) {
+        document.getElementById('result').textContent = 'เลข ' + input + ' เป็นจำนวนเฉพาะ';
+      } else {
+        document.getElementById('result').textContent = 'เลข ' + input + ' ไม่เป็นจำนวนเฉพาะ';
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>ตรวจสอบเลขจำนวนเฉพาะ</h1>
+  <input type="text" id="numberInput" placeholder="ใส่เลข">
+  <button onclick="checkNumber()">ตรวจสอบ</button>
+  <p id="result"></p>
+</body>
+</html>
